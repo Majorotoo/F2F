@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>F2F 2025 Program Outline</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Updated accent colors to better match the yellow/gold and blue in the image */
+        --accent: #f7b32c; /* Gold/Yellow */
+        --accent-2: #347afc; /* Bright Blue */
+        --muted: #f7f6fb;
+        --glass-alpha: 0.45;
+        --card-width: 960px;
+        --text-dark: #1f1f1f; /* Darker text for glass cards */
+        --text-light: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        color: var(--text-dark); /* Use a dark text variable */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #111;
+      }
+
+      /* Fullscreen hero with couple image */
+      .hero {
+        position: relative;
+        /* Ensure content is centered both vertically and horizontally */
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 20px 60px 20px;
+        overflow: hidden;
+        /* Use a darker overlay that complements the background image colors */
+        background: linear-gradient(
+          180deg,
+          rgba(10, 8, 14, 0.6),
+          rgba(10, 8, 14, 0.6)
+        );
+      }
+      /* Background Image Container for Transition */
+      .bg-image {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("Pic/FRAGRANCE TO FIRE 2021 PICTURES_@maineventgh (531).jpg");
+        background-size: cover;
+        background-position: center;
+        filter: saturate(1.1) contrast(1) brightness(0.8) blur(2px); /* Slight adjustments to enhance */
+        transform: scale(1.02);
+        z-index: 0;
+        /* Add transition for the background image change */
+        transition: background-image 2s ease-in-out;
+      }
+      /* subtle decorative overlay */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        /* Updated overlay colors using the new accents */
+        background: linear-gradient(
+          135deg,
+          rgba(247, 179, 44, 0.18),
+          rgba(52, 122, 252, 0.12)
+        );
+        z-index: 1;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+
+      /* center container - No change needed here for main centering, it's done in .hero */
+      .container {
+        width: 100%;
+        max-width: var(--card-width);
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: start;
+        align-content: center;
+      }
+
+      /* left: title & invitation */
+      .intro {
+        padding: 28px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+        min-height: 320px;
+        color: var(
+          --text-light
+        ); /* Light text on the dark/blurred intro background */
+        backdrop-filter: blur(8px) saturate(120%);
+        -webkit-backdrop-filter: blur(8px) saturate(120%);
+        /* Changed from white to a translucent dark color for better contrast against the bright image */
+        background: linear-gradient(
+          180deg,
+          rgba(6, 6, 8, var(--glass-alpha)),
+          rgba(6, 6, 8, 0.12)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 10px 40px rgba(6, 6, 8, 0.5);
+      }
+      .couple-title {
+        font-family: "Playfair Display", serif;
+        font-size: 44px;
+        letter-spacing: 1px;
+        color: var(--text-light);
+        margin: 0;
+        line-height: 1;
+        text-shadow: 0 4px 18px rgba(10, 8, 14, 0.6);
+      }
+      .date {
+        color: var(--accent); /* Used the new accent color */
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+      .subtitle {
+        color: var(--text-light);
+        opacity: 0.95;
+        font-size: 21px;
+        max-width: 50ch;
+        line-height: 1.5;
+        font-weight: bold;
+      }
+      /* Program outline text color fix */
+      .intro p[style] {
+        color: var(--accent); /* Use a bright color for emphasis */
+      }
+
+      /* right: program card (glass, overlays so the image shows through) */
+      .program-card {
+        align-self: start;
+        width: 100%;
+        border-radius: 18px;
+        padding: 22px;
+        backdrop-filter: blur(8px) saturate(120%);
+        -webkit-backdrop-filter: blur(8px) saturate(120%);
+        /* Keep white/light background for the program outline for readability */
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, var(--glass-alpha)),
+          rgba(255, 255, 255, 0.12)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 10px 40px rgba(6, 6, 8, 0.5);
+      }
+      .program-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+      .monogram {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 28px;
+        color: white;
+        /* Updated monogram gradient to match the new color scheme */
+        background: linear-gradient(135deg, var(--accent-2), var(--accent));
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28),
+          inset 0 -6px 18px rgba(255, 255, 255, 0.06);
+        flex-shrink: 0;
+      }
+      .program-title {
+        font-family: "Playfair Display", serif;
+        color: var(--text-dark); /* Dark text on light glass card */
+        font-size: 18px;
+        margin: 0;
+        letter-spacing: 0.6px;
+      }
+      .program-sub {
+        font-size: 12px;
+        color: var(--text-dark);
+        opacity: 0.7;
+        margin-top: 2px;
+      }
+
+      /* Program item styling */
+      .program-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15); /* Darker divider for contrast */
+      }
+      .program-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      /* Session column */
+      .session-col {
+        font-weight: bolder;
+        color: var(--text-dark); /* Dark text for readability */
+        flex-grow: 1;
+        flex-basis: 70%;
+        min-width: 0;
+        font-size: 15px;
+      }
+      /* Time column wrapper */
+      .time-col-wrap {
+        text-align: right;
+        flex-grow: 0;
+        flex-shrink: 0;
+        min-width: 140px;
+      }
+      /* Time text style */
+      .time-col {
+        color: var(--accent-2); /* Used the new blue accent for the time */
+        font-weight: 600;
+        font-size: 15px;
+        white-space: nowrap;
+      }
+      .program-list {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* small footer */
+      .foot {
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        color: var(
+          --text-dark
+        ); /* Darker text for readability on light glass card */
+        font-size: 18px;
+      }
+      .foot strong {
+        color: #d10000; /* Maintain the striking red for the contact */
+      }
+      .add strong {
+        color: var(
+          --accent
+        ); /* Apply the accent color to the emphasized text */
+      }
+
+      /* small decorative flourish */
+      .divider {
+        height: 2px;
+        width: 190px;
+        border-radius: 8px;
+        /* Updated divider gradient to match the new color scheme */
+        background: linear-gradient(100deg, var(--accent), var(--accent-2));
+        margin-top: 6px;
+        box-shadow: 0 6px 14px rgba(247, 179, 44, 0.28);
+      }
+      /* Added a class for the background image container for JavaScript to target */
+      .bg-image {
+        transition: opacity 2s ease-in-out;
+      }
+
+      /* responsive media queries remain the same */
+      @media (max-width: 1000px) {
+        .container {
+          grid-template-columns: 1fr;
+          padding: 0 20px;
+        }
+        .program-card {
+          order: 2;
+          margin-top: 8px;
+        }
+        .intro {
+          order: 1;
+          margin-bottom: 8px;
+          padding: 18px 16px;
+        }
+      }
+      @media (max-width: 400px) {
+        .hero {
+          padding: 30px 15px 50px 15px;
+        }
+        .couple-title {
+          font-size: 32px;
+        }
+        .date {
+          font-size: 16px;
+        }
+        .subtitle {
+          font-size: 18px;
+        }
+        .monogram {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+        .program-card {
+          padding: 15px;
+        }
+        .program-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
+        }
+        .time-col-wrap {
+          text-align: left;
+          min-width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hero" role="main" aria-labelledby="wedding-heading">
+      <div class="bg-image" id="background-image-changer"></div>
+      <div class="container">
+        <section class="intro" aria-label="Invitation Introduction">
+          <h1 id="wedding-heading" class="couple-title">
+            FRAGRANCE TO FIRE 2025
+          </h1>
+          <div class="date">19 October 2025 • F2F</div>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="subtitle">
+            We're delighted to have you visit the official program outline for
+            <span class="add">
+              <strong>F2F: Fragrance to Fire 2025..</strong>
+            </span>
+            Below, you'll find the complete schedule for the program, and all
+            the essential information you need for this powerful event. We look
+            forward to seeing you on
+            <strong>October 19th!</strong>
+          </p>
+
+          <p style="margin-top: auto; font-size: 18px; color: var(--accent)">
+            Program outline for F2F 2025 👇
+          </p>
+        </section>
+
+        <aside
+          class="program-card"
+          aria-label="Program Outline (sessions and times)"
+        >
+          <div class="program-head">
+            <div class="monogram" aria-hidden="true">F2F</div>
+            <div>
+              <h2 class="program-title">F2F Program Outline</h2>
+              <div class="program-sub">Sessions &amp; Times</div>
+            </div>
+          </div>
+
+          <div class="program-list">
+            <div class="program-item">
+              <div class="session-col">
+                📌.Musical Interlude &amp; Arrival of Guests
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">4:00PM – 4:30 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">📌. Intercessory</div>
+              <div class="time-col-wrap">
+                <div class="time-col">4:30 PM – 5:00 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Praises by Anoited Royals(Praise Team)
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">5:00 PM – 5:20 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Welcoming of guest &amp; Purpose of gathering
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">5:20 PM – 5:25 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">📌. Spoken word</div>
+              <div class="time-col-wrap">
+                <div class="time-col">5:25 PM – 5:35 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Ministration by Miracle Temple AG choir
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">5:35 PM – 5:50 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Ministration by the levites choir(offering)
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">5:50 PM – 6:05 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Ministration by The Anointed Royals
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">6:05 PM – 6:20 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Ministration by Liberty AG choir
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">6:20 PM – 6:35 PM</div>
+              </div>
+            </div>
+            <div class="program-item">
+              <div class="session-col">📌. Exhortation by Rev. Mark Obeng</div>
+              <div class="time-col-wrap">
+                <div class="time-col">6:35 PM – 6:45 PM</div>
+              </div>
+            </div>
+            <div class="program-item">
+              <div class="session-col">
+                📌. Live Recording Ministration by Anoited Royals
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">6:45 PM – 7:00 PM</div>
+              </div>
+            </div>
+            <div class="program-item">
+              <div class="session-col">
+                📌. Fundraising - Rev. Richard Osei-Wusu
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">7:00 PM – 7:15 PM</div>
+              </div>
+            </div>
+            <div class="program-item">
+              <div class="session-col">💑. Ministration by Rama Antwi</div>
+              <div class="time-col-wrap">
+                <div class="time-col">7:15 PM – 7:50 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">📌. Vote of thanks</div>
+              <div class="time-col-wrap">
+                <div class="time-col">7:50 PM – 7:55 PM</div>
+              </div>
+            </div>
+
+            <div class="program-item">
+              <div class="session-col">
+                📌. Closing Prayer &amp; Benediction
+              </div>
+              <div class="time-col-wrap">
+                <div class="time-col">7:55 PM – 8:00 PM</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="foot" style="margin-top: 16px">
+            <div style="font-size: 15px; color: rgb(243, 8, 8)">
+              <strong> For assistance contact: 0246642840 </strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <footer
+      style="
+        /* Updated footer gradient to match new color scheme */
+        background: linear-gradient(
+          135deg,
+          var(--accent-2),
+          rgba(247, 255, 5, 0.747)
+        );
+        font-size: 17px;
+        color: var(--text-light);
+        padding: 18px;
+        text-align: center;
+      "
+    >
+      &copy; 2025 All rights reserved. F2F 2025 . Developed by Samuel Otoo(Major
+      Otoo).
+    </footer>
+
+    <script>
+      // ===========================================
+      // JAVASCRIPT FOR BACKGROUND IMAGE TRANSITION
+      // ===========================================
+      const bgImageElement = document.getElementById(
+        "background-image-changer"
+      );
+      const imageUrls = [
+        "Pic/FRAGRANCE TO FIRE 2021 PICTURES_@maineventgh (531).jpg", // Your original image
+        "Pic/FRAGRANCE TO FIRE 2021 PICTURES_@maineventgh (536).jpg",
+        "Pic/FRAGRANCE TO FIRE 2021 PICTURES_@maineventgh (545).jpg.jpg",
+        "Pic/FRAGRANCE TO FIRE 2021 PICTURES_@maineventgh (536).jpg",
+        "Pic/FRAGRANCE TO FIRE 2021 PICTURES_@maineventgh (542).jpg.jpg",
+        // Add more image URLs here
+      ];
+      const transitionDuration = 1500; // 2000ms = 2s
+      let currentImageIndex = 0;
+
+      function changeBackgroundImage() {
+        // Increment index and loop back to the start
+        currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+        const nextImageUrl = imageUrls[currentImageIndex];
+
+        // 1. Start fade-out (opacity 0)
+        bgImageElement.style.opacity = 0;
+
+        // 2. After transition time (2s), change the background image and fade-in
+        setTimeout(() => {
+          // Change image URL
+          bgImageElement.style.backgroundImage = `url("${nextImageUrl}")`;
+          // Fade-in (opacity 1)
+          bgImageElement.style.opacity = 1;
+        }, transitionDuration);
+      }
+
+      // Initial check for the first image
+      (function () {
+        const img = new Image();
+        img.src = imageUrls[0];
+        img.onerror = () => {
+          console.warn(
+            `Background image (${imageUrls[0]}) not found. Please ensure the path is correct.`
+          );
+        };
+      })();
+
+      // Start the image rotation. This will change the image every 5 seconds (5000ms) + the 2s transition.
+      // Adjust the 5000ms value to control how long each image is fully visible.
+      // If you want a continuous 2s loop, set the interval to 2000.
+      setInterval(changeBackgroundImage, 8000); // Wait 5s, then 2s transition, then repeat.
+
+      // Apply initial opacity transition in CSS
+      bgImageElement.style.transition = `opacity ${
+        transitionDuration / 1000
+      }s ease-in-out`;
+      bgImageElement.style.opacity = 1; // Start with the first image visible
+    </script>
+  </body>
+</html>
